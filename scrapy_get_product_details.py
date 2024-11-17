@@ -61,11 +61,10 @@ class ProductModelSpider(scrapy.Spider):
         data = json.loads(json_text.split('=')[1])
 
         try:
-            
             selling_price = data['productDetails'][next(iter(data['productDetails']))]['location']['price']['pricingDataList'][0]['finalPrice']
             price = selling_price
         except KeyError:
-                price = 0
+            price = 0
 
 
         # Printing to console for debugging
